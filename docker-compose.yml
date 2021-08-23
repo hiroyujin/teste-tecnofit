@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  mariadb:
+    image: docker.io/bitnami/mariadb:10.2
+    environment:
+      - MARIADB_USER=tecnofit_user
+      - MARIADB_DATABASE=tecnofit
+      - MARIADB_PASSWORD=eh8928e21h9e2he19h
+      - MARIADB_ROOT_PASSWORD=eh8928e21h9e2he19h
+    ports:
+      - 3308:3306
+    volumes:
+      - ./:/bitnami/mariadb
+
+  application:
+    tty: true
+    image: docker.io/bitnami/laravel:8
+    environment:
+      - DB_HOST=mariadb
+      - DB_USERNAME=tecnofit_user
+      - DB_DATABASE=tecnofit
+      - DB_PASSWORD=eh8928e21h9e2he19h
+    depends_on:
+      - mariadb
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
