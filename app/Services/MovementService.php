@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\DB;
  */
 class MovementService
 {
-  private $rankingLimit = 15;
-  private $useCache = false;
+  private $rankingLimit = 20;
+  private $useCache = true;
+  private $cacheExpirationSeconds = 60;
 
   /**
    * Get user ranking by movement
@@ -42,7 +43,7 @@ class MovementService
    */
   private function getCachedPersonalRecordByMovement(Movement $movement): Collection
   {
-    return Cache::rememberForever("movement:{$movement->id}:ranking", function () use ($movement) {
+    return Cache::remember("movement:{$movement->id}:ranking", $this->cacheExpirationSeconds, function () use ($movement) {
       return $this->getPersonalRecordByMovement($movement);
     });
   }
