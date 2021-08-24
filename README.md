@@ -2,16 +2,22 @@
 Sistema desenvolvido em PHP com o framework Laravel
 
 ## Setup com docker
-
-- 1 - Rode o seguinte comando para criar os containers
+na raiz do projeto rode o comando `make setup`
+ou siga as seguintes instruções:
+- 1 - Para evitar problema com permissão de pastas crie uma pasta `data` na raiz do projeto e de permissão para a pasta
+```
+mkdir data
+chmod 755 ./data
+```
+- 2 - Rode o seguinte comando para criar os containers
 ```
 docker-compose up -d
 ```
-- 2 - Espere uns 15 segundo para que termine o processo inicial de setup, você pode acompanhar o progresso rodando o comando
+- 3 - Espere uns 15 segundo para que termine o processo inicial de setup, você pode acompanhar o progresso rodando o comando
 ```
 docker logs -f tecnofit-application
 ```
-- 3 - Assim que finalizar é necessário rodar o seeder do banco de dados com o comando
+- 4 - Assim que finalizar é necessário rodar o seeder do banco de dados com o comando
 ```
 docker exec tecnofit-application php artisan db:seed
 ```
