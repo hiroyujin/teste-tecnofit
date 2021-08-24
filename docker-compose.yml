@@ -3,6 +3,7 @@ version: '3'
 services:
   mariadb:
     image: docker.io/bitnami/mariadb:10.2
+    container_name: tecnofit-mariadb
     environment:
       - MARIADB_USER=tecnofit_user
       - MARIADB_DATABASE=tecnofit
@@ -16,6 +17,7 @@ services:
   application:
     tty: true
     image: docker.io/bitnami/laravel:8
+    container_name: tecnofit-application
     environment:
       - DB_HOST=mariadb
       - DB_USERNAME=tecnofit_user
