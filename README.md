@@ -4,19 +4,27 @@ Sistema desenvolvido em PHP com o framework Laravel
 ## Setup com docker
 na raiz do projeto rode o comando `make setup`
 ou siga as seguintes instruções:
-- 1 - Crie um volume para o mariadb
+- 1 - Copie o arquivo .env.example para .env
+```
+cp .env.example .env
+```
+- 2 - Crie um volume para o mariadb
 ```
 docker volume create --label tecnofit_mariadb --name tecnofit_mariadb
 ```
-- 2 - Rode o seguinte comando para criar os containers
+- 3 - Rode o seguinte comando para criar os containers
 ```
 docker-compose up -d
 ```
-- 3 - Espere uns 15 segundo para que termine o processo inicial de setup, você pode acompanhar o progresso rodando o comando
+- 4 - Espere uns 15 segundo para que termine o processo inicial de setup, você pode acompanhar o progresso rodando o comando
 ```
 docker logs -f tecnofit-application
 ```
-- 4 - Assim que finalizar é necessário rodar o seeder do banco de dados com o comando
+- 5 - Espere uns 15 segundo para que termine o processo inicial de setup, você pode acompanhar o progresso rodando o comando
+```
+docker exec tecnofit-application php artisan key:generate
+```
+- 6 - Assim que finalizar é necessário rodar o seeder do banco de dados com o comando
 ```
 docker exec tecnofit-application php artisan db:seed
 ```
