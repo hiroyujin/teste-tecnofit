@@ -2,8 +2,7 @@ start:
 	docker-compose up -d
 
 setup:
-	mkdir data
-	chmod 755 data
+	docker volume create --label tecnofit_mariadb --name tecnofit_mariadb
 	docker-compose up -d
 	sleep 15
 	docker exec tecnofit-application php artisan db:seed

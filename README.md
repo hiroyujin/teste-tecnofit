@@ -4,10 +4,9 @@ Sistema desenvolvido em PHP com o framework Laravel
 ## Setup com docker
 na raiz do projeto rode o comando `make setup`
 ou siga as seguintes instruções:
-- 1 - Para evitar problema com permissão de pastas crie uma pasta `data` na raiz do projeto e de permissão para a pasta
+- 1 - Crie um volume para o mariadb
 ```
-mkdir data
-chmod 755 ./data
+docker volume create --label tecnofit_mariadb --name tecnofit_mariadb
 ```
 - 2 - Rode o seguinte comando para criar os containers
 ```
