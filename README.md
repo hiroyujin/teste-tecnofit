@@ -3,6 +3,7 @@ Sistema desenvolvido em PHP com o framework Laravel
 
 ## Setup com docker
 na raiz do projeto rode o comando `make setup`
+
 Obs: Caso seu sistema não seja o linux prefira seguir os passos abaixo, ou altere o tempo de sleep no Makefile para 60 segundos pois docker é mais lento em outros sistemas e não finaliza o processo de setup inicial antes de passar para o proximo passo.
 
 - 1 - Copie o arquivo .env.example para .env
@@ -29,6 +30,8 @@ docker exec tecnofit-application php artisan key:generate
 ```
 docker exec tecnofit-application php artisan db:seed
 ```
+
+Para remover todos os containers e volume basta executar o comando `make destroy`
 
 ## Setup sem docker
 
