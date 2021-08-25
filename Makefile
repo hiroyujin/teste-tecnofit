@@ -11,3 +11,10 @@ setup:
 
 shell:
 	docker exec -it tecnofit-application bash
+
+destroy:
+	docker stop tecnofit-application
+	docker stop tecnofit-mariadb
+	docker rm tecnofit-application
+	docker rm tecnofit-mariadb
+	docker volume rm tecnofit_mariadb
