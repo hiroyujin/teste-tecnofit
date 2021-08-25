@@ -3,7 +3,8 @@ Sistema desenvolvido em PHP com o framework Laravel
 
 ## Setup com docker
 na raiz do projeto rode o comando `make setup`
-ou siga as seguintes instruções:
+Obs: Caso seu sistema não seja o linux prefira seguir os passos abaixo, ou altere o tempo de sleep no Makefile para 60 segundos pois docker é mais lento em outros sistemas e não finaliza o processo de setup inicial antes de passar para o proximo passo.
+
 - 1 - Copie o arquivo .env.example para .env
 ```
 cp .env.example .env
@@ -20,7 +21,7 @@ docker-compose up -d
 ```
 docker logs -f tecnofit-application
 ```
-- 5 - Espere uns 15 segundo para que termine o processo inicial de setup, você pode acompanhar o progresso rodando o comando
+- 5 - Execute o seguinte comando para gerar a chave da aplicação
 ```
 docker exec tecnofit-application php artisan key:generate
 ```
