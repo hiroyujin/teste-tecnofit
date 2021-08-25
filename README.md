@@ -2,9 +2,13 @@
 Sistema desenvolvido em PHP com o framework Laravel
 
 ## Setup com Docker
+
+Usando o docker a aplicação fica disponível na porta 3000 e o banco na porta 3306
+
 na raiz do projeto execute o comando `make setup`
 
 Obs: Caso seu sistema não seja o linux prefira seguir os passos abaixo, ou altere o tempo de sleep no Makefile para 60 segundos pois docker é mais lento em outros sistemas e não finaliza o processo de setup inicial antes de passar para o proximo passo.
+
 
 - 1 - Copie o arquivo .env.example para .env
 ```
@@ -80,3 +84,5 @@ php artisan db:seed
   ]
 }
 ```
+
+Caso haja alterações nos dados direto pelo banco é necessário desabilitar o cache dentro do arquivo `/app/Services/MovementService`
